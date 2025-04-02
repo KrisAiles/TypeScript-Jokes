@@ -3,6 +3,7 @@ interface JokeObj {
     readonly answer: string;
 }
 
+// object containing the jokes
 const jokes: JokeObj[] =[
     {
         joke: "What happens if you spot errors running the TypeScript compiler?",
@@ -74,6 +75,8 @@ const button = document.getElementById('joke-button');
 const jokeP = document.createElement('p');
 const answerP = document.createElement('p');
 
+
+// function to pick a random joke from the joke object, display the joke then after a delay display the answer and make the button inactive until the answer displays
 function handleJokeClick() {
     button?.removeEventListener("click", handleJokeClick);
     jokeP.textContent = '';
@@ -84,10 +87,11 @@ function handleJokeClick() {
     setTimeout(() => {
         answerP.textContent = jokes[i].answer;
         answerContainer?.appendChild(answerP);
-    }, 5000);
+    }, 3000);
     setTimeout(() => {
         button?.addEventListener("click", handleJokeClick);
-    }, 8000);
+    }, 5000);
 }
 
+// add a click event listener to the tell me a joke button
 button?.addEventListener("click", handleJokeClick);

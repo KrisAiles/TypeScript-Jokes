@@ -1,3 +1,4 @@
+// object containing the jokes
 var jokes = [
     {
         joke: "What happens if you spot errors running the TypeScript compiler?",
@@ -65,6 +66,7 @@ var answerContainer = document.getElementById('answer-container');
 var button = document.getElementById('joke-button');
 var jokeP = document.createElement('p');
 var answerP = document.createElement('p');
+// function to pick a random joke from the joke object, display the joke then after a delay display the answer and make the button inactive until the answer displays
 function handleJokeClick() {
     button === null || button === void 0 ? void 0 : button.removeEventListener("click", handleJokeClick);
     jokeP.textContent = '';
@@ -75,9 +77,10 @@ function handleJokeClick() {
     setTimeout(function () {
         answerP.textContent = jokes[i].answer;
         answerContainer === null || answerContainer === void 0 ? void 0 : answerContainer.appendChild(answerP);
-    }, 5000);
+    }, 3000);
     setTimeout(function () {
         button === null || button === void 0 ? void 0 : button.addEventListener("click", handleJokeClick);
-    }, 8000);
+    }, 5000);
 }
+// add a click event listener to the tell me a joke button
 button === null || button === void 0 ? void 0 : button.addEventListener("click", handleJokeClick);
